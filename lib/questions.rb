@@ -297,18 +297,6 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
-  word_count = {}
-
-File.open(file_path, "r") do |f|
-  f.each_line do |line|
-    words = line.split(' ').each do |word|
-      word_count[word] += 1 if word_count.has_key? word
-      word_count[word] = 1 if not word_count.has_key? word
-    end
-  end
-end
-
-puts word_count
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
