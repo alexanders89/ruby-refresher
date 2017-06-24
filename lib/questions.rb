@@ -256,7 +256,10 @@ end
 # should return true for a 3 dot range like 1...20, false for a
 # normal 2 dot range
 def is_a_3_dot_range?(range)
-  range
+  if range.include?(range.end)
+    return false
+  else true
+  end
 end
 
 # get the square root of a number
@@ -266,7 +269,12 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
-  file_path
+  file = File.open(file_path)
+  answer = 0
+  file.each_line do |line|
+    answer += line.split.length
+  end
+  answer
 end
 
 # --- tougher ones ---
