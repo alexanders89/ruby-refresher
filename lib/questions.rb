@@ -289,7 +289,7 @@ end
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
-  date.to_s
+  date.to_date
 end
 
 # given your birthday this year, this method tells you
@@ -305,12 +305,57 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
+  file = File.open(file_path)
+  ones = 0
+  twos = 0
+  threes = 0
+  fours = 0
+  fives = 0
+  sixes = 0
+  sevens = 0
+  eights = 0
+  nines = 0
+  tens = 0
+  elevens = 0
+  twelves = 0
+  file.each_line do |line|
+    words = line.split
+    words.each do |word|
+      ones +=1 if word.length == 1
+      twos +=1 if word.length == 2
+      threes +=1 if word.length == 3
+      fours +=1 if word.length == 4
+      fives +=1 if word.length == 5
+      sixes +=1 if word.length == 6
+      sevens +=1 if word.length == 7
+      eights +=1 if word.length == 8
+      nines +=1 if word.length == 9
+      tens +=1 if word.length == 10
+      elevens +=1 if word.length == 11
+      twelves +=1 if word.length == 12
+    end
+  end
+  return ones
 end
+
 
 # implement fizzbuzz without modulo, i.e. the % method
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
+  numbers = (1..100)
+
+numbers.each do |n|
+	n * 1.0
+	if (n / 15.0).is_a? Integer
+		puts 'FizzBuzz'
+	elsif (n / 5.0).is_a? Integer
+		puts 'Buzz'
+	elsif (n / 3.0).is_a? Integer
+		puts 'Fizz'
+	else puts n
+	end
+end
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
